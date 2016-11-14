@@ -16,8 +16,9 @@ function setOrder(){
     var count = 0;
     for(var i=0; i < namelist.length; i++){
         if(namelist[i].innerHTML == document.getElementById("it_name").value){
-            qtàlist[i].innerHTML += document.getElementById("it_qty").value;
-            alert("name ="+namelist[i]+" qtà= "+qtàlist[i]);
+            var numqtà = parseInt(qtàlist[i].innerHTML,10);
+            numqtà += +document.getElementById("it_qty").value;
+            qtàlist[i].innerHTML = numqtà;
             count++;
         }
     }
