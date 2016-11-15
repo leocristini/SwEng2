@@ -31,21 +31,24 @@ function setOrder(){
         var tmp_it = document.getElementById("it_list").insertCell(0);
         tmp_it.innerHTML = document.getElementById("it_name").value;
         var tmp_qty = document.getElementById("qty_list").insertCell(0);
-        if(Number(document.getElementById("it_qty").value)<maxAmount){
-            tmp_qty.innerHTML = document.getElementById("it_qty").value;  
+        if(Number(document.getElementById("it_qty").value)>maxAmount){
+            tmp_qty.innerHTML = maxAmount;  
              alert("too many items ordered");
         }else
-            tmp_qty.innerHTML = maxAmount;
+            tmp_qty.innerHTML = document.getElementById("it_qty").value; 
     }
     
     
-    
+    showForm();
     
 };
 
 function changeMaxAm(){
     
-    var maxAmount = document.getElementById("maxAmount").value;
-    document.getElementById("maxAmount") = maxAmount;
+    if(document.getElementById("maxAmount").readOnly == true)
+        document.getElementById("maxAmount").readOnly = false;
+    else
+        document.getElementById("maxAmount").readOnly = true;
+    
     
 };
